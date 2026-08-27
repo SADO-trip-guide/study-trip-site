@@ -1,57 +1,79 @@
+<!-- Specify the document type as HTML5 -->
 <!DOCTYPE html>
+<!-- Set the primary language of the document to Japanese -->
 <html lang="ja">
 <head>
+  <!-- Set character encoding to UTF-8 -->
   <meta charset="UTF-8">
+  <!-- Ensure proper layout rendering and responsive zoom on mobile devices -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- 検索エンジン除外設定 -->
+  <!-- Prevent search engines from indexing and following links on this private page -->
   <meta name="robots" content="noindex, nofollow">
+  <!-- Title of the web application shown on the browser tab -->
   <title>2026年度 国内研修旅行 Webパンフレット</title>
 
-  <!-- Google Fonts & FontAwesome -->
+  <!-- Preconnect to Google Fonts servers to optimize font loading performance -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Load Noto Sans JP font family from Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+  <!-- Load FontAwesome icon library from CDN for UI icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   
-  <!-- 外部CSSファイルの読み込み -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Link external CSS stylesheet located in the css directory -->
+  <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
 
+  <!-- Main header container for the website title -->
   <header>
-    <span class="sub-title"><i class="fa-solid fa-graduation-cap"></i> DOMESTIC TRIP</span>
+    <!-- Sub-title badge with graduation cap icon -->
+    <span class="sub-title"><i class="fa-solid fa-graduation-cap"></i> STUDY TRIP</span>
+    <!-- Main title of the domestic field trip -->
     <h1>2026年度 国内研修旅行</h1>
+    <!-- Event date and destination info with calendar icon -->
     <p><i class="fa-regular fa-calendar"></i> 9月2日(水) 〜 9月4日(金) | 新潟・山形</p>
   </header>
 
+  <!-- Main content wrapper -->
   <div class="container">
 
-    <!-- 全員遵守のマナー・注意事項 -->
+    <!-- Card component highlighting important guidelines and manners -->
     <div class="alert-card">
+      <!-- Warning header with alert icon -->
       <h2><i class="fa-solid fa-triangle-exclamation"></i> 研修中の必須ルール & マナー</h2>
+      <!-- Unordered list of mandatory rules -->
       <ul>
+        <!-- Footwear restriction rule -->
         <li><strong>履物制限:</strong> クロックス・サンダル類は全面禁止（スニーカー等の運動靴を着用）。</li>
+        <!-- Food and gum restriction rule -->
         <li><strong>飲食制限:</strong> 見学中のガムや飴は禁止。</li>
+        <!-- General behavior rule -->
         <li>成人としての自覚を持ち、節度ある行動・マナーを徹底してください。</li>
       </ul>
     </div>
 
-    <!-- タブナビゲーション -->
+    <!-- Sticky tab navigation for switching itinerary days -->
     <div class="tab-nav">
+      <!-- Button to activate Day 1 tab -->
       <button class="tab-btn active" onclick="switchTab('day1', this)">
         <span class="day-num">1日目</span>9/2 (水)
       </button>
+      <!-- Button to activate Day 2 tab -->
       <button class="tab-btn" onclick="switchTab('day2', this)">
-        <span class="day-num">2日目</span>9/3 (木)
+        <span class="day-num">2日</span>9/3 (木)
       </button>
+      <!-- Button to activate Day 3 tab -->
       <button class="tab-btn" onclick="switchTab('day3', this)">
         <span class="day-num">3日目</span>9/4 (金)
       </button>
     </div>
 
-    <!-- ================= 1日目コンテンツ ================= -->
+    <!-- ================= DAY 1 CONTENT SECTION ================= -->
     <div id="day1" class="tab-content active">
+      <!-- Timeline list showing time-based events -->
       <div class="timeline">
+        <!-- Highlighted timeline item for gathering -->
         <div class="time-item highlight">
           <div class="time-header">
             <span class="time-badge"><i class="fa-regular fa-clock"></i> 06:25</span>
@@ -60,6 +82,7 @@
           <div class="spot-desc">06:30 学校出発 ➔ バス移動で両津港へ</div>
         </div>
 
+        <!-- Timeline item for port departure -->
         <div class="time-item">
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-ship"></i> 07:20</span>
@@ -68,6 +91,7 @@
           <div class="spot-desc">ジェットフォイル（JF）移動 ➔ 08:27 新潟港着</div>
         </div>
 
+        <!-- Timeline item for bus boarding -->
         <div class="time-item">
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-bus"></i> 09:00</span>
@@ -76,6 +100,7 @@
           <div class="spot-desc"><strong>※1号車・2号車に分かれて乗車</strong>（高速経由）</div>
         </div>
 
+        <!-- Timeline item for rest stop -->
         <div class="time-item">
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-store"></i> 10:15</span>
@@ -84,6 +109,7 @@
           <div class="spot-desc">10:30 出発</div>
         </div>
 
+        <!-- Timeline item for lunch -->
         <div class="time-item">
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-utensils"></i> 12:15</span>
@@ -93,63 +119,86 @@
           <div class="spot-desc">昼食休憩 ➔ 13:15 出発</div>
         </div>
 
+        <!-- Timeline item for Jionji arrival with smooth scroll link -->
         <div class="time-item">
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-torii-gate"></i> 14:40</span>
           </div>
-          <div class="spot-title">慈恩寺テラス・慈恩寺 到着</div>
+          <!-- Clickable spot title that scrolls to Jionji card -->
+          <div class="spot-title spot-link" onclick="scrollToSpot('spot-jionji')">
+            慈恩寺テラス・慈恩寺 到着 <i class="fa-solid fa-circle-arrow-down"></i>
+          </div>
           <div class="spot-desc">
             <div class="group-box">
               <strong><i class="fa-solid fa-users"></i> グループ別行動:</strong><br>
               ・Aグループ: テラス見学 ➔ 本山ガイド付き拝観<br>
               ・Bグループ: 本山ガイド付き拝観 ➔ テラス見学<br>
-              ※テラス〜本山間は貸切バス移動 / 16:30 出発
+              ※テラス〜本山間は貸切バス移動
             </div>
+            16:30 出発
           </div>
         </div>
 
+        <!-- Highlighted timeline item for hotel arrival with smooth scroll link -->
         <div class="time-item highlight">
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-hotel"></i> 18:00</span>
             <span class="meal-badge">夕食（ホテル）</span>
           </div>
-          <div class="spot-title">七日町ワシントンホテル 到着</div>
+          <!-- Clickable spot title that scrolls to Hotel card -->
+          <div class="spot-title spot-link" onclick="scrollToSpot('spot-nanokamachi')">
+            七日町ワシントンホテル 到着 <i class="fa-solid fa-circle-arrow-down"></i>
+          </div>
           <div class="spot-desc">宿泊・夕食（※バスは観光バス駐車場へ回送）</div>
         </div>
       </div>
 
+      <!-- Section title divider for Day 1 spots -->
       <div class="section-title"><i class="fa-solid fa-camera"></i> 1日目の見学・宿泊スポット</div>
 
-      <div class="spot-card">
-        <img src="慈恩寺.jpeg" alt="本山 慈恩寺">
+      <!-- Clickable spot card leading to Jionji detail page -->
+      <div id="spot-jionji" class="spot-card clickable-card" onclick="openInternalPage('pages/jionji-detail.html')">
+        <img src="images/慈恩寺.jpeg" alt="本山 慈恩寺">
         <div class="spot-card-body">
-          <h3>本山 慈恩寺</h3>
+          <h3>本山 慈恩寺 <span class="detail-badge">詳細を見る <i class="fa-solid fa-angle-right"></i></span></h3>
           <p>天平18年（746年）開山と伝わる出羽の名刹。室町時代の密教建築の様式を残す本堂や、数々の国指定重要文化財の仏像群を拝観します。</p>
           <div class="btn-group">
-            <a href="http://p.tukiyama.jp/jionji/" target="_blank" rel="noopener" class="btn-link"><i class="fa-solid fa-globe"></i> 公式サイト</a>
+            <!-- External official website button with propagation stopped -->
+            <a href="http://p.tukiyama.jp/jionji/" target="_blank" rel="noopener" class="btn-link" onclick="event.stopPropagation();"><i class="fa-solid fa-globe"></i> 公式サイト</a>
           </div>
         </div>
       </div>
 
-      <div class="spot-card">
-        <img src="慈恩寺テラス.jpg" alt="慈恩寺テラス">
+      <!-- Clickable spot card leading to Jionji Terrace detail page -->
+      <div id="spot-jionji-terrace" class="spot-card clickable-card" onclick="openInternalPage('pages/jionji-terrace-detail.html')">
+        <img src="images/慈恩寺テラス.jpg" alt="慈恩寺テラス">
         <div class="spot-card-body">
-          <h3>慈恩寺テラス</h3>
-          <p>大型シアターやデジタル展示を備えた総合案内施設。慈恩寺の歴史と修験道文化を体験的に学びます。</p>
+          <h3>慈恩寺テラス <span class="detail-badge">詳細を見る <i class="fa-solid fa-angle-right"></i></span></h3>
+          <p>史跡慈恩寺の歴史や文化財をパネルや映像展示でわかりやすく紹介する総合案内施設です。</p>
+          <div class="btn-group">
+            <!-- External official website button with propagation stopped -->
+            <a href="https://jionji-terrace.jp/" target="_blank" rel="noopener" class="btn-link" onclick="event.stopPropagation();"><i class="fa-solid fa-globe"></i> 公式サイト</a>
+          </div>
         </div>
       </div>
 
-      <div class="spot-card">
-        <img src="七日町ワシントンホテル.jpeg" alt="七日町ワシントンホテル">
+      <!-- Hotel card with official website button -->
+      <div id="spot-nanokamachi" class="spot-card">
+        <img src="images/七日町ワシントンホテル.jpeg" alt="七日町ワシントンホテル">
         <div class="spot-card-body">
           <h3>七日町ワシントンホテル</h3>
-          <p>1日目の宿泊先。山形市中心部の七日町エリアに位置する利便性の高いホテルです。</p>
+          <p>1日目の宿泊先。山形市中心部の七日町エリアに位置するホテルです。</p>
+          <div class="btn-group">
+            <!-- External official website button -->
+            <a href="https://washington-hotels.jp/yamagata-nanokamachi/" target="_blank" rel="noopener" class="btn-link" onclick="event.stopPropagation();"><i class="fa-solid fa-globe"></i> 公式サイト</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ================= 2日目コンテンツ ================= -->
+    <!-- ================= DAY 2 CONTENT SECTION ================= -->
     <div id="day2" class="tab-content">
+      <!-- Timeline list showing time-based events for Day 2 -->
       <div class="timeline">
         <div class="time-item">
           <div class="time-header">
@@ -163,7 +212,9 @@
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-torii-gate"></i> 10:00</span>
           </div>
-          <div class="spot-title">熊野大社（自由参拝）</div>
+          <div class="spot-title spot-link" onclick="scrollToSpot('spot-kumano')">
+            熊野大社（自由参拝） <i class="fa-solid fa-circle-arrow-down"></i>
+          </div>
           <div class="spot-desc">11:00 出発</div>
         </div>
 
@@ -188,7 +239,9 @@
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-landmark"></i> 13:45</span>
           </div>
-          <div class="spot-title">蔵春閣・周辺自由散策</div>
+          <div class="spot-title spot-link" onclick="scrollToSpot('spot-zoshunkaku')">
+            蔵春閣・周辺自由散策 <i class="fa-solid fa-circle-arrow-down"></i>
+          </div>
           <div class="spot-desc">
             到着後、全員で全体説明を受講した後に班別行動。<br>
             <div class="group-box">
@@ -209,46 +262,55 @@
         </div>
       </div>
 
+      <!-- Section title divider for Day 2 spots -->
       <div class="section-title"><i class="fa-solid fa-camera"></i> 2日目の見学・宿泊スポット</div>
 
-      <div class="spot-card">
-        <img src="熊野大社.jpeg" alt="熊野大社">
+      <!-- Clickable spot card leading to Kumano Taisha detail page -->
+      <div id="spot-kumano" class="spot-card clickable-card" onclick="openInternalPage('pages/kumano-detail.html')">
+        <img src="images/熊野大社.jpeg" alt="熊野大社">
         <div class="spot-card-body">
-          <h3>熊野大社</h3>
+          <h3>熊野大社 <span class="detail-badge">詳細を見る <i class="fa-solid fa-angle-right"></i></span></h3>
           <p>「東北の伊勢」と称される由緒ある神社。県内最古の茅葺き屋根建築である拝殿や、本殿裏の「3羽のうさぎ」の繊細な隠し彫りで知られます。</p>
           <div class="btn-group">
-            <a href="https://kumano-taisha.or.jp/" target="_blank" rel="noopener" class="btn-link"><i class="fa-solid fa-globe"></i> 公式サイト</a>
+            <a href="https://kumano-taisha.or.jp/" target="_blank" rel="noopener" class="btn-link" onclick="event.stopPropagation();"><i class="fa-solid fa-globe"></i> 公式サイト</a>
           </div>
         </div>
       </div>
 
-      <div class="spot-card">
-        <img src="蔵春閣.jpeg" alt="蔵春閣">
+      <!-- Clickable spot card leading to Zoshunkaku detail page -->
+      <div id="spot-zoshunkaku" class="spot-card clickable-card" onclick="openInternalPage('pages/zoshunkaku-detail.html')">
+        <img src="images/蔵春閣.jpeg" alt="蔵春閣">
         <div class="spot-card-body">
-          <h3>蔵春閣・周辺自由散策エリア</h3>
+          <h3>蔵春閣・周辺自由散策エリア <span class="detail-badge">詳細を見る <i class="fa-solid fa-angle-right"></i></span></h3>
           <p>大倉喜八郎の和洋折衷別邸。大成建設による解体・移築・耐震復元構造を学びます。交代時間には周辺（諏訪神社、王紋酒造、清水園等）を自由に散策します。</p>
           
-          <div class="map-container">
+          <!-- Embedded Google Map container -->
+          <div class="map-container" onclick="event.stopPropagation();">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3144.187321289139!2d139.3248383!3d37.9501509!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5f8b2d1c68f1f727%3A0x6b2e1e3ad81e6cb7!2z6JS15pil6Ziq!5e0!3m2!1sja!2sjp!4v1710000000000!5m2!1sja!2sjp" width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
           </div>
 
           <div class="btn-group">
-            <a href="https://www.city.shibata.lg.jp/shisetsu/kanko/kanko/1022382.html" target="_blank" rel="noopener" class="btn-link"><i class="fa-solid fa-globe"></i> 施設案内</a>
+            <a href="https://www.city.shibata.lg.jp/shisetsu/kanko/kanko/1022382.html" target="_blank" rel="noopener" class="btn-link" onclick="event.stopPropagation();"><i class="fa-solid fa-globe"></i> 施設案内</a>
           </div>
         </div>
       </div>
 
+      <!-- Ryokan card with official website button -->
       <div class="spot-card">
-        <img src="村上館.jpeg" alt="月岡温泉 村上館">
+        <img src="images/村上館.jpeg" alt="月岡温泉 村上館">
         <div class="spot-card-body">
           <h3>月岡温泉 村上館</h3>
           <p>2日目の宿泊先。エメラルドグリーンに輝く素晴らしい効能の温泉と風情溢れる空間を体験します。</p>
+          <div class="btn-group">
+            <a href="https://www.murakamikan.com/" target="_blank" rel="noopener" class="btn-link" onclick="event.stopPropagation();"><i class="fa-solid fa-globe"></i> 公式サイト</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <!-- ================= 3日目コンテンツ ================= -->
+    <!-- ================= DAY 3 CONTENT SECTION ================= -->
     <div id="day3" class="tab-content">
+      <!-- Timeline list showing time-based events for Day 3 -->
       <div class="timeline">
         <div class="time-item">
           <div class="time-header">
@@ -262,7 +324,9 @@
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-building-columns"></i> 10:30</span>
           </div>
-          <div class="spot-title">北方文化博物館（館内ガイド付き）</div>
+          <div class="spot-title spot-link" onclick="scrollToSpot('spot-hoppou')">
+            北方文化博物館（館内ガイド付き） <i class="fa-solid fa-circle-arrow-down"></i>
+          </div>
           <div class="spot-desc">12:00 出発</div>
         </div>
 
@@ -279,7 +343,9 @@
           <div class="time-header">
             <span class="time-badge"><i class="fa-solid fa-torii-gate"></i> 14:30</span>
           </div>
-          <div class="spot-title">新潟縣護国神社（自由参拝）</div>
+          <div class="spot-title spot-link" onclick="scrollToSpot('spot-gokoku')">
+            新潟縣護国神社（自由参拝） <i class="fa-solid fa-circle-arrow-down"></i>
+          </div>
           <div class="spot-desc">15:30 出発</div>
         </div>
 
@@ -292,38 +358,42 @@
         </div>
       </div>
 
+      <!-- Section title divider for Day 3 spots -->
       <div class="section-title"><i class="fa-solid fa-camera"></i> 3日目の見学スポット</div>
 
-      <div class="spot-card">
-        <img src="北方博物館外観.jpeg" alt="北方文化博物館 外観">
+      <!-- Clickable spot card leading to Northern Culture Museum detail page -->
+      <div id="spot-hoppou" class="spot-card clickable-card" onclick="openInternalPage('pages/hoppou-detail.html')">
+        <img src="images/北方博物館外観.jpeg" alt="北方文化博物館 外観">
         <div class="spot-card-body">
-          <h3>北方文化博物館</h3>
+          <h3>北方文化博物館 <span class="detail-badge">詳細を見る <i class="fa-solid fa-angle-right"></i></span></h3>
           <p>越後の豪農・伊藤家の旧邸宅。100畳の大広間をはじめとする圧巻のスケールの純和風建築や庭園、戦後の民営文化財保存の原点を学びます。</p>
           <div class="btn-group">
-            <a href="http://www.hoppou-bunka.com/" target="_blank" rel="noopener" class="btn-link"><i class="fa-solid fa-globe"></i> 公式サイト</a>
+            <a href="http://www.hoppou-bunka.com/" target="_blank" rel="noopener" class="btn-link" onclick="event.stopPropagation();"><i class="fa-solid fa-globe"></i> 公式サイト</a>
           </div>
         </div>
       </div>
 
-      <div class="spot-card">
-        <img src="護国神社1.jpeg" alt="新潟縣護国神社">
+      <!-- Clickable spot card leading to Gokoku Shrine detail page -->
+      <div id="spot-gokoku" class="spot-card clickable-card" onclick="openInternalPage('pages/gokoku-detail.html')">
+        <img src="images/護国神社1.jpeg" alt="新潟縣護国神社">
         <div class="spot-card-body">
-          <h3>新潟縣護国神社</h3>
+          <h3>新潟縣護国神社 <span class="detail-badge">詳細を見る <i class="fa-solid fa-angle-right"></i></span></h3>
           <p>戊辰戦争以降の郷土の戦没者を祀る神社。昭和20年に造営された荘厳な白木造りの社殿と静謐な境内を見学します。</p>
           <div class="btn-group">
-            <a href="https://www.niigata-gokoku.or.jp/" target="_blank" rel="noopener" class="btn-link"><i class="fa-solid fa-globe"></i> 公式サイト</a>
+            <a href="https://www.niigata-gokoku.or.jp/" target="_blank" rel="noopener" class="btn-link" onclick="event.stopPropagation();"><i class="fa-solid fa-globe"></i> 公式サイト</a>
           </div>
         </div>
       </div>
     </div>
 
+    <!-- Footer container -->
     <footer>
-      <p>&copy; 2026 国内研修実行委員会 | 学内共有用</p>
+      <p>&copy; 2026 AI・ITエンジニア学科2年 | 学内共有用</p>
     </footer>
 
   </div>
 
-  <!-- 外部JavaScriptファイルの読み込み -->
-  <script src="script.js"></script>
+  <!-- Link external JavaScript file from the js directory -->
+  <script src="js/script.js"></script>
 </body>
 </html>

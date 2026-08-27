@@ -1,0 +1,601 @@
+/* Define CSS Variables for global colors, radii, and shadows */
+:root {
+  --primary: #1e3d59;
+  --primary-light: #2b5876;
+  --secondary: #ff6e40;
+  --accent: #ffc107;
+  --bg-color: #f4f7f6;
+  --card-bg: #ffffff;
+  --text-main: #2b2b2b;
+  --text-sub: #666666;
+  --danger-bg: #fff5f5;
+  --danger-border: #e53e3e;
+  --radius: 12px;
+  --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Reset margins, paddings, and set default box-sizing */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Noto Sans JP', sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Base body styles */
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  line-height: 1.6;
+  padding-bottom: 60px;
+}
+
+/* Main hero header styling */
+header {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  color: white;
+  text-align: center;
+  padding: 32px 16px 24px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+/* Sub-title badge styling inside header */
+header .sub-title {
+  font-size: 0.85rem;
+  background: rgba(255, 255, 255, 0.2);
+  display: inline-block;
+  padding: 3px 12px;
+  border-radius: 20px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+/* Main heading style inside header */
+header h1 {
+  font-size: 1.6rem;
+  font-weight: 700;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+}
+
+/* Sub-text paragraph inside header */
+header p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+/* Main content layout container */
+.container {
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+/* Warning and guidelines alert card */
+.alert-card {
+  background-color: var(--danger-bg);
+  border: 1px solid rgba(229, 62, 62, 0.2);
+  border-left: 6px solid var(--danger-border);
+  padding: 16px;
+  margin-top: 12px;
+  margin-bottom: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* Alert card heading */
+.alert-card h2 {
+  font-size: 1rem;
+  color: var(--danger-border);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Unordered list inside alert card */
+.alert-card ul {
+  list-style: none;
+  font-size: 0.85rem;
+}
+
+/* Individual list item inside alert card */
+.alert-card li {
+  margin-bottom: 4px;
+  padding-left: 18px;
+  position: relative;
+}
+
+/* Custom icon pseudo-element for alert list items */
+.alert-card li::before {
+  content: "\f054";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  font-size: 0.65rem;
+  color: var(--danger-border);
+  position: absolute;
+  left: 2px;
+  top: 3px;
+}
+
+/* Sticky tab navigation wrapper */
+.tab-nav {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 24px;
+  position: sticky;
+  top: 10px;
+  z-index: 100;
+  background: rgba(244, 247, 246, 0.95);
+  backdrop-filter: blur(8px);
+  padding: 4px 0;
+}
+
+/* Individual tab button styling */
+.tab-btn {
+  flex: 1;
+  padding: 10px 4px;
+  background-color: #ffffff;
+  border: 2px solid #e2e8f0;
+  border-radius: var(--radius);
+  font-weight: 700;
+  color: var(--text-sub);
+  cursor: pointer;
+  transition: all 0.25s ease;
+  text-align: center;
+  font-size: 0.85rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.03);
+}
+
+/* Day number span inside tab button */
+.tab-btn .day-num {
+  font-size: 1rem;
+  display: block;
+}
+
+/* Active tab button styling */
+.tab-btn.active {
+  background-color: var(--primary);
+  color: white;
+  border-color: var(--primary);
+  box-shadow: 0 4px 10px rgba(30, 61, 89, 0.3);
+}
+
+/* Tab content block styling */
+.tab-content {
+  display: none;
+  animation: fadeIn 0.35s ease-in-out;
+}
+
+/* Display active tab content */
+.tab-content.active {
+  display: block;
+}
+
+/* Keyframe animation for switching tabs */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Timeline component wrapper */
+.timeline {
+  position: relative;
+  padding-left: 24px;
+  margin-bottom: 32px;
+}
+
+/* Vertical line for the timeline */
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 7px;
+  top: 12px;
+  bottom: 12px;
+  width: 3px;
+  background-color: #cbd5e1;
+  border-radius: 2px;
+}
+
+/* Individual event item on the timeline */
+.time-item {
+  position: relative;
+  margin-bottom: 16px;
+  background: var(--card-bg);
+  padding: 14px 16px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  border: 1px solid #edf2f7;
+}
+
+/* Bullet dot on the timeline line */
+.time-item::before {
+  content: '';
+  position: absolute;
+  left: -22px;
+  top: 18px;
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  background-color: var(--primary);
+  border: 3px solid var(--bg-color);
+}
+
+/* Highlighted timeline event item */
+.time-item.highlight {
+  border-left: 4px solid var(--secondary);
+}
+
+/* Highlighted bullet dot */
+.time-item.highlight::before {
+  background-color: var(--secondary);
+}
+
+/* Header inside timeline item */
+.time-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
+/* Time badge styling */
+.time-badge {
+  font-weight: 700;
+  color: var(--primary);
+  font-size: 1.05rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+/* Meal pill badge styling */
+.meal-badge {
+  font-size: 0.75rem;
+  background-color: #f59e0b;
+  color: white;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: 500;
+}
+
+/* Spot title inside timeline item */
+.spot-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+/* Clickable spot link inside timeline for smooth scrolling */
+.spot-title.spot-link {
+  color: var(--primary-light);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 2px 6px;
+  margin-left: -6px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+/* Hover state for clickable spot links */
+.spot-title.spot-link:hover {
+  background-color: #e2e8f0;
+  color: var(--secondary);
+}
+
+/* Icon style inside spot link */
+.spot-title.spot-link i {
+  font-size: 0.75rem;
+  color: var(--secondary);
+}
+
+/* Spot description inside timeline item */
+.spot-desc {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-top: 4px;
+}
+
+/* Sub-group info box inside timeline item */
+.group-box {
+  background-color: #f0f7ff;
+  border: 1px solid #bae6fd;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 8px;
+  font-size: 0.85rem;
+  color: #0369a1;
+}
+
+/* Section divider title */
+.section-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin: 28px 0 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Divider line pseudo-element */
+.section-title::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background-color: #cbd5e1;
+}
+
+/* Spot presentation card */
+.spot-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  border: 1px solid #edf2f7;
+}
+
+/* Clickable card leading to internal detail pages */
+.spot-card.clickable-card {
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+/* Hover effect for clickable cards */
+.spot-card.clickable-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border-color: var(--primary-light);
+}
+
+/* Image styling inside spot card */
+.spot-card img {
+  width: 100%;
+  height: 190px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Body container inside spot card */
+.spot-card-body {
+  padding: 16px;
+}
+
+/* Heading 3 inside spot card */
+.spot-card-body h3 {
+  font-size: 1.15rem;
+  margin-bottom: 6px;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Badge indicating detail page link */
+.detail-badge {
+  font-size: 0.75rem;
+  color: var(--secondary);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Paragraph inside spot card body */
+.spot-card-body p {
+  font-size: 0.88rem;
+  color: var(--text-sub);
+  margin-bottom: 12px;
+}
+
+/* Group wrapper for action buttons */
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+/* Button style for external links */
+.btn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 14px;
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  font-size: 0.82rem;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+/* Active touch state for buttons */
+.btn-link:active {
+  opacity: 0.85;
+}
+
+/* Embedded Google Maps container */
+.map-container {
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 12px 0;
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.1);
+}
+
+/* Footer styling */
+footer {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-sub);
+  margin-top: 40px;
+  padding-top: 16px;
+  border-top: 1px solid #e2e8f0;
+}
+
+/* ================= STYLES FOR DETAIL PAGES ================= */
+
+/* Sub-header specifically for detail pages */
+header.detail-header {
+  position: relative;
+  padding-top: 20px;
+}
+
+/* Top-left back button on detail pages */
+.back-btn {
+  position: absolute;
+  left: 16px;
+  top: 18px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+/* Active touch state for back button */
+.back-btn:active {
+  background: rgba(255, 255, 255, 0.4);
+}
+
+/* Main showcase image wrapper on detail pages */
+.detail-hero-img {
+  margin-bottom: 24px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  background: var(--card-bg);
+}
+
+/* Image element in hero image wrapper */
+.detail-hero-img img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Caption text below detail hero images */
+.img-caption {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-sub);
+  padding: 8px 12px;
+  background-color: #ffffff;
+  border-top: 1px solid #edf2f7;
+  text-align: center;
+}
+
+/* Detail section container */
+.detail-section {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  border: 1px solid #edf2f7;
+}
+
+/* Title for detail sections */
+.detail-title {
+  font-size: 1.1rem;
+  color: var(--primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 2px solid #e2e8f0;
+  padding-bottom: 6px;
+}
+
+/* Paragraph text inside detail section */
+.detail-section p {
+  font-size: 0.9rem;
+  color: var(--text-main);
+  line-height: 1.7;
+}
+
+/* Feature highlight box inside detail pages */
+.point-box {
+  background-color: #f8fafc;
+  border-left: 4px solid var(--primary-light);
+  padding: 12px 14px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+}
+
+/* Heading inside feature point box */
+.point-box h3 {
+  font-size: 0.95rem;
+  color: var(--primary);
+  margin-bottom: 4px;
+}
+
+/* Paragraph inside feature point box */
+.point-box p {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-bottom: 0;
+}
+
+/* Highlighted section for field learning objectives */
+.detail-section.highlight-section {
+  background-color: #f0f7ff;
+  border: 1px solid #bae6fd;
+}
+
+/* Title for highlighted learning section */
+.detail-section.highlight-section .detail-title {
+  color: #0369a1;
+  border-bottom-color: #bae6fd;
+}
+
+/* External official link card container */
+.external-link-box {
+  text-align: center;
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  margin-bottom: 20px;
+  border: 1px solid #edf2f7;
+}
+
+/* Text inside external link box */
+.external-link-box p {
+  font-size: 0.85rem;
+  color: var(--text-sub);
+  margin-bottom: 12px;
+}
+
+/* Large back button at the bottom of detail pages */
+.back-btn-bottom {
+  background-color: #e2e8f0;
+  color: var(--text-main);
+  border: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  font-weight: bold;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+/* Active touch state for bottom back button */
+.back-btn-bottom:active {
+  background-color: #cbd5e1;
+}
