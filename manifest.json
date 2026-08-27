@@ -1,0 +1,16 @@
+{
+  "short_name": "研修しおり",
+  "name": "2026年度 国内研修旅行 Webパンフレット",
+  "icons": [
+    {
+      "src": "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/svgs/solid/graduation-cap.svg",
+      "type": "image/svg+xml",
+      "sizes": "192x192 512x512"
+    }
+  ],
+  "start_url": "./index.html",
+  "background_color": "#1e3d59",
+  "theme_color": "#1e3d59",
+  "display": "standalone",
+  "orientation": "portrait"
+}
