@@ -399,5 +399,19 @@
 
   <!-- Link external JavaScript file from the js directory -->
   <script src="js/script.js"></script>
+
+  <!-- PWA Service Worker Automatic Update Check (Safari Cache Fix) -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('./sw.js').then((registration) => {
+          // ページ表示時に更新（最新のsw.js）の有無をチェック
+          registration.update();
+        }).catch((error) => {
+          console.error('Service Worker registration failed:', error);
+        });
+      });
+    }
+  </script>
 </body>
 </html>
