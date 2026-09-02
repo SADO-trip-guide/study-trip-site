@@ -1,5 +1,5 @@
 // Cache version identifier
-const CACHE_NAME = 'study-trip-v1.2.1';
+const CACHE_NAME = 'study-trip-v1.2.2';
 
 // List of all static assets to pre-cache for offline access
 const ASSETS_TO_CACHE = [
